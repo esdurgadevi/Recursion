@@ -1,5 +1,5 @@
 # Recursion
-## Power of Four
+## 342. Power of Four
 [LeetCode Link](https://leetcode.com/problems/power-of-four/submissions/1322706922)
 ```Java
 class Solution {
