@@ -1,5 +1,5 @@
 # Recursion
-## 342. Power of Four
+### 342. Power of Four
 [LeetCode Link](https://leetcode.com/problems/power-of-four/submissions/1322706922)
 ```Java
 class Solution {
@@ -14,3 +14,18 @@ class Solution {
 all the possible ways are if n==1 then it is true whenever n<=0 it will false (negative numbers)
 - Here one notepoint that is 5/4 also give one that is 5/4==1.25 but the function will take only integer so it will take one and then check if n==1
 then return true but 5 is not a power of 4 in this reason we check n%4==0 and then call the function.
+### 231. Power of Two
+[LeetCode Link](https://leetcode.com/problems/power-of-two/description/)
+```Java
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if(n==1) return true;
+        if(n<=0) return false;
+        return n%2==0 && isPowerOfTwo(n/2);
+        
+    }
+}
+```
+- Same as the previous problem.
+### 
+
