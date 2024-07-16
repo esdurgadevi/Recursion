@@ -1,6 +1,6 @@
 # Recursion
 ## Power of Four
-(LeetCode Link)[https://leetcode.com/problems/power-of-four/submissions/1322706922]
+[LeetCode Link](https://leetcode.com/problems/power-of-four/submissions/1322706922)
 ```Java
 class Solution {
     public boolean isPowerOfFour(int n) {
