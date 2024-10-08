@@ -107,4 +107,57 @@ class Solution {
 - the returned word will add to the words.
 - we remove the extra space by trim() function.
 > [Refernce](https://www.youtube.com/watch?v=SCtIlKd3mDM)
+### Unique Integers - Binary Suffixes
+The program must accept an integer N as the input. The program must print the unique integers that are formed by converting the suffixes in the binary representation of N to decimal values. The unique integers must be printed in ascending order.
+Boundary Condition(s): 1 <= N <= 10^8
+
+Input Format:
+The first line contains N.
+Output Format:
+The first line contains the unique integers based on the given condition.
+
+Example Input/Output 1:
+Input: 12
+Output: 0 4 12
+Explanation:
+Here N = 12.
+The binary representation of 12 is 1100.
+The suffixes in the binary representation of 12 are 0, 00, 100 and 1100. The unique integers that are formed by converting the above suffixes are 0, 4 and 12. So the integers 0, 4 and 12 are printed in ascending order.
+
+Example Input/Output 2:
+Input: 77
+Output:1 15 13 77
+```java
+import java.util.";
+public class Hello
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> ans = new ArrayList<>();
+        while(n>0)
+        {
+            ans.add(n%2);
+            n/=2;
+        }
+        Collections.reverse(ans);
+        ArrayList<Integer> a1 = new ArrayList<>();
+        find(a1, ans,0);
+        Collections.reverse(a1);
+        for(int x:a1) System.out.print(x+" ");
+    }
+    public static void find(ArrayList<Integer> a1, ArrayList<Integer> ans,int index){
+         int sum = 0,g=0;
+         if(index>=ans.size()){
+             return;
+         }
+         for(int i=ans.size()-1;i>=index; i--){
+              sum=sum+ans.get(i)*(int)Math.pow(2,g++);
+          }if(lal.contains(sum)) al.add(sum);
+          find(a1, ans, index+1);
+   }
+}
+```
+- In this code using recursion we find the each sun sequence number and rint it in ascending order.
 
