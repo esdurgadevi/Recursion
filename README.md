@@ -160,4 +160,96 @@ public class Hello
 }
 ```
 - In this code using recursion we find the each sun sequence number and rint it in ascending order.
+### 125. Valid Palindrome
+[Leetcode link](https://leetcode.com/problems/valid-palindrome/)
+<br>
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
 
+Example 1:
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+Example 2:
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+
+Example 3:
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+
+Constraints:
+1 <= s.length <= 2 * 105
+s consists only of printable ASCII characters.
+
+```java
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<s.length();i++)
+        {
+            char ch = s.charAt(i);
+            if(Character.isDigit(ch) ||  Character.isLetter(ch))
+            {
+                str.append(Character.toLowerCase(ch));
+            }
+        }
+        boolean ans = find(str.toString(),0);
+        return ans;
+    }
+    public boolean find(String str,int index)
+    {
+        if(index>=str.length()/2) return true;
+        if(str.charAt(index)!=str.charAt(str.length()-index-1))
+        {
+            return false;
+        }
+        return find(str,index+1);
+    }
+}
+```
+- In this code we find the string is palindrome or not using recursion.
+- so first we remove all comma full stop and space from the string and call the recursion function whenever the first and the last character is not equal that time we return the false.
+- Otherwise if we croos the half of the string then we return true beacue all that is same.
+### Find all factorial numbers less than or equal to n
+[Leetcode link](https://www.geeksforgeeks.org/problems/find-all-factorial-numbers-less-than-or-equal-to-n3548/0?problemType=functional&difficulty%255B%255D=-1&page=1&query=problemTypefunctionaldifficulty%255B%255D-1page1)
+<br>
+A number n is called a factorial number if it is the factorial of a positive integer. For example, the first few factorial numbers are 1, 2, 6, 24, 120,
+Given a number n, the task is to return the list/vector of the factorial numbers smaller than or equal to n.
+
+Examples:
+Input: n = 3
+Output: 1 2
+Explanation: The first factorial number is 1 which is less than equal to n. The second number is 2 which is less than equal to n,but the third factorial number is 6 which is greater than n. So we print only 1 and 2.
+Input: n = 6
+Output: 1 2 6
+Explanation: The first three factorial numbers are less than equal to n but the fourth factorial number 24 is greater than n. So we print only first three factorial numbers.
+Expected Time Complexity: O(k), Where k is the number of factorial numbers.
+Expected Auxiliary Space: O(1)
+
+Constraints:
+1<=n<=1018
+```java
+class Solution {
+    static ArrayList<Long> factorialNumbers(long n) {
+        ArrayList<Long> ans  = new ArrayList<>();
+        find(n,ans,1);
+        return ans;
+    }
+    static void find(long n,ArrayList<Long> ans,int index)
+    {
+        long p =1;
+        for(int i=1;i<=index;i++)
+        {
+            p=p*i;
+        }
+        if(p>n) return;
+        ans.add(p);
+        find(n,ans,index+1);
+    }
+}
+```
